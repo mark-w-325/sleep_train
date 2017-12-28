@@ -32,4 +32,4 @@ RUN echo 'autostart_station = 3844261022002693378' >> config
 
 WORKDIR ../../..
 
-CMD ["/bin/sh"]
+CMD ["pianobar"]
