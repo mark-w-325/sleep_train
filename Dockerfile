@@ -10,7 +10,7 @@ RUN apt-get -qy install python-pip
 #RUN apt-get -qy install python-dev python-pip gcc make
 RUN apt-get -qy install pianobar
 RUN apt-get -qy install screen
-RUN apt-get -qy install nano
+#RUN apt-get -qy install nano
 RUN apt-get upgrade
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
