@@ -1,23 +1,29 @@
-FROM resin/rpi-raspbian:latest
+FROM resin/rpi-raspbian:stretch
 MAINTAINER Mark Williams <maw325@gmail.com>
 ENTRYPOINT []
 
-RUN apt-get -q update
-RUN apt-get -qy install apt-utils
-#RUN apt-get -qy install libasound2-dev
-RUN apt-get -qy install python
-RUN apt-get -qy install python-pip
-#RUN apt-get -qy install python-dev python-pip gcc make
-RUN apt-get -qy install pianobar
-RUN apt-get -qy install screen
-#RUN apt-get -qy install nano
-RUN apt-get upgrade
-RUN apt-get clean
+RUN apt-get -q update && \
+    apt-get -qy install apt-utils \
+    python \
+    python-dev \
+    python-pip \
+    python-virtualenv \
+    pulseaudio \
+    pianobar \
+    screen \
+    nano \
+    alsa-utils \
+    pulseaudio-utils gstreamer1.0 gstreamer0.10-pulseaudio libsdl1.2debian \
+    --no-install-recommends && \
+    apt-get upgrade pianobar pulseaudio && \
+    apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY pypianobar/pypianobar.py pypianobar.py
+
+#RUN amixer cset numid=3 1
 
 WORKDIR /root
 
