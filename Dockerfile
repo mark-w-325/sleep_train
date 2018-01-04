@@ -1,3 +1,8 @@
+# To Build
+# docker build -t sleep_train:test .
+# To Run (Need to add the sleep_train.env to the --env-list arg)
+# docker run -it --rm --net host $(find /dev/snd/ -type c | sed 's/^/--device /') --privileged --name sleep_train sleep_train:test
+
 FROM debian:stretch
 LABEL maintainer "Mark Williams <maw325@gmail.com>"
 
@@ -21,7 +26,6 @@ RUN apt-get install -y \
   python \
   python-dev \
   python-pip \
-  python-virtualenv \
   --no-install-recommends
 
 COPY requirements.txt requirements.txt
