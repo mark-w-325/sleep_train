@@ -34,7 +34,7 @@ COPY pypianobar/pypianobar.py pypianobar.py
 
 RUN mkdir -p /root/.config/pianobar
 RUN mkfifo /root/.config/ctl
-COPY eventcmd /root/.config/eventcmd
+COPY eventcmd /root/.config/pianobar/eventcmd
 RUN chmod +x /root/.config/pianobar/eventcmd
 
 RUN fingerprint=$(openssl s_client -connect tuner.pandora.com:443 < /dev/null 2> /dev/null | openssl x509 -noout -fingerprint | tr -d ':' | cut -d'=' -f2) && echo tls_fingerprint = $fingerprint >> /root/.config/pianobar/config
