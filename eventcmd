@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "$@" > /root/.config/pianobar/cur.txt
+while read data
+  do echo "$data" >> /root/.config/pianobar/cur.txt
+done
