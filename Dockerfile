@@ -42,5 +42,5 @@ RUN chmod +x /root/.config/pianobar/eventcmd
 
 RUN fingerprint=$(openssl s_client -connect tuner.pandora.com:443 < /dev/null 2> /dev/null | openssl x509 -noout -fingerprint | tr -d ':' | cut -d'=' -f2) && echo tls_fingerprint = $fingerprint >> /root/.config/pianobar/config
 
-ENTRYPOINT []
+ENTRYPOINT ["/bin/sh", "-c", "python pypianobar.py && /bin/sh"]
 CMD ["/bin/sh"]
