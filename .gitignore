@@ -2,3 +2,4 @@ sleep_train.env
 .DS_Store
 *.pyc
 *.log
+*.todo
