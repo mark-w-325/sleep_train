@@ -18,15 +18,13 @@ RUN apt-get update && apt-get install -y \
     openssl \
     ca-certificates \
     pulseaudio \
+    python \
+    python-dev \
+    python-pip \
+    python-setuptools \
+    python-wheel \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Python
-RUN apt-get install -y \
-  python \
-  python-dev \
-  python-pip \
-  --no-install-recommends
 
 ENV INSTALL_PATH /sleep_train
 RUN mkdir -p $INSTALL_PATH
