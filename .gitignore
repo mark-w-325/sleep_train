@@ -1,2 +1,4 @@
-pandora-pw.env
-pandora-email.env
+sleep_train.env
+.DS_Store
+*.pyc
+*.log
