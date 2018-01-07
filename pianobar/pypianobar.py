@@ -1,6 +1,6 @@
 import os
 
-pianobar_path = os.envrion.get("PIANOBAR_CONFIG_PATH")
+pianobar_path = os.environ.get("PIANOBAR_CONFIG_PATH")
 pandora_email = os.environ.get("PANDORA_EMAIL")
 pandora_email = "user = " + pandora_email
 pandora_psw = os.environ.get("PANDORA_PSW")
