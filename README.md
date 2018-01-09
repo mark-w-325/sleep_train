@@ -10,3 +10,21 @@ When the green light turns on, it will also trigger Pandora via pianobar to wake
 ## Interface
 
 This uses Flask as the webhost and will allow parents to specify times for the lights to be on/off and pick a channel for Pandora to play.
+
+## Requirements
+
+  - Docker
+  - This git repo
+
+## Pre-requisites
+
+You will need to rename the sleep_train_example.env will need to be renamed to sleep_train.env.
+You will also need to change the variables in this file to your specifics.
+
+## Docker Build
+
+    docker build -t sleep_train .
+
+## Docker Container
+
+    docker run -it --rm --net host $(find /dev/snd/ -type c | sed 's/^/--device /') --privileged --env-file sleep_train.env --name sleep_train sleep_train
