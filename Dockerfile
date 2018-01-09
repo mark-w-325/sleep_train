@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
+COPY pianobar/alsa.conf /usr/share/alsa/
+
 ENV INSTALL_PATH /sleep_train
 RUN mkdir -p $INSTALL_PATH
 
